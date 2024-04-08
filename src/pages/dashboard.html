@@ -1,11 +1,166 @@
 <!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="dashboard.css">
+
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <title>Admin Dashboard Panel</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .tab {
+            cursor: pointer;
+            margin-right: 10px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
+
 <body>
-    
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+                <img src="images/logo.png" alt="">
+            </div>
+
+            <span class="logo_name">My Coin</span>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li><a href="#">
+                        <i class="uil uil-estate"></i>
+                        <span onclick="showSection('dashboard')" class="link-name">Dashboard</span>
+                    </a></li>
+                <li><a href="#">
+                        <i class="uil uil-files-landscapes"></i>
+                        <span onclick="showSection('transaction')" class="link-name">Transaction</span>
+                    </a></li>
+                <li><a href="#">
+                        <i class="uil uil-chart"></i>
+                        <span id="balance" onclick="showSection('view-balance')" class="link-name">Balance</span>
+                    </a></li>
+                <li><a href="#">
+                        <i class="uil uil-dialpad"></i>
+                        <span onclick="showSection('blockchain')" class="link-name">Block</span>
+                    </a></li>
+            </ul>
+
+            <ul class="logout-mode">
+                <li><a href="#">
+                        <i class="uil uil-signout"></i>
+                        <span onclick="location.href='index.html'" class="link-name">Logout</span>
+                    </a></li>
+
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                        <span class="link-name">Dark Mode</span>
+                    </a>
+
+                    <div class="mode-toggle">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="dashboard" class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="Search here...">
+            </div>
+
+        </div>
+
+        <div class="dash-content">
+            <table id="transaction-table">
+                <thead>
+                    <tr>
+                        <th>From Address</th>
+                        <th>To Address</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body"></tbody>
+            </table>
+        </div>
+    </section>
+    <section id="transaction" class="dashboard">
+        <div class="dash-content">
+
+            <div class="boxes">
+                <div class="wrapper">
+                    <div class="input-box">
+                        <input id="fromAddress" disabled="disabled">
+                    </div>
+                    <div class="text">
+                        <span class="text">To</span>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" id="toAddress">
+                        <label>Address</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" id="amount">
+                        <label>Amount</label>
+                    </div>
+                    <div class="input-box button">
+                        <input id="Send" type="button" value="Send">
+                    </div>
+                </div>
+            </div>
+    </section>
+    <section id="blockchain" class="dashboard">
+        <table id="blockchain-table">
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Previous Hash</th>
+                    <th>Hash</th>
+                </tr>
+            </thead>
+            <tbody id="blockchain-body">
+            </tbody>
+        </table>
+    </section>
+    <section id="view-balance" class="dashboard">
+        <div class="dash-content">
+            <div class="boxes">
+                <div class="wrapper">
+                    <div class="text">
+                        <span class="text">Public key</span>
+                    </div>
+                    <div class="input-box">
+                        <input id="account-address" disabled="disabled">
+                    </div>
+                    <div class="text">
+                        <span class="text">Amount</span>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="text" id="balance-display" disabled>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <script src="../dashboard.js"></script>
+    </script>
 </body>
+
 </html>

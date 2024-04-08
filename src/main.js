@@ -1,4 +1,5 @@
-const {Blockchain, Transaction} = require("./blockchain")
+const {Blockchain, Transaction} = require("./services/blockchain.js")
+const fs = require("fs")
 const EC = require('elliptic').ec;
 const ec = new EC('secp256k1');
 const myKey = ec.keyFromPrivate('55770bf9cfbbad57bc316ebf4a1c94272adac0f9a815d72ba6df3df840d78903');
@@ -12,3 +13,4 @@ myCoin.minePendingTransactions(myWalletAddress);
 console.log('\nBalance of miner is', myCoin.getBalanceOfAddress(myWalletAddress));
 myCoin.chain[1].transactions[0].amount = 1;
 console.log('Is chain valid ? ' + myCoin.isChainValid());
+console.log(myCoin.getLatestBlock().previousHash)

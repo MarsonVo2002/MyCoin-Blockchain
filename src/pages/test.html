@@ -1,0 +1,78 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Generator</title>
+</head>
+<body>
+    <h1>Generate Key Pair</h1>
+    <button id="generateJsonButton">Generate Keys (JSON)</button>
+    <button id="generateTxtButton">Generate Keys (Text)</button>
+
+    <script src="../test.js"></script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Pair Management</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button onclick="showSection('generate')">Generate Key Pair</button>
+        <button onclick="showSection('upload')">Upload Key Pair</button>
+    </header>
+    <main>
+        <section id="generate">
+            <h2>Generate Key Pair</h2>
+            <input type="password" id="generatePassword" placeholder="Enter password">
+            <button onclick="generateKeyPair()">Generate</button>
+            <!-- Display generated key pair here -->
+            <pre id="generatedKeyPair" class="hidden"></pre>
+        </section>
+        <section id="upload" class="hidden">
+            <h2>Upload Key Pair</h2>
+            <input type="file" id="fileInput">
+            <button onclick="uploadKeyPair()">Upload</button>
+            <!-- Display uploaded key pair here -->
+            <pre id="uploadedKeyPair" class="hidden"></pre>
+        </section>
+    </main>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            // Show the selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        function generateKeyPair() {
+            const password = document.getElementById('generatePassword').value;
+            // Your code to generate key pair and display here
+            const generatedKeyPair = 'Generated key pair:\nPrivate key: ...\nPublic key: ...';
+            document.getElementById('generatedKeyPair').textContent = generatedKeyPair;
+            document.getElementById('generatedKeyPair').classList.remove('hidden');
+        }
+
+        function uploadKeyPair() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+            // Your code to read and process the uploaded file here
+            const uploadedKeyPair = 'Uploaded key pair:\nPrivate key: ...\nPublic key: ...';
+            document.getElementById('uploadedKeyPair').textContent = uploadedKeyPair;
+            document.getElementById('uploadedKeyPair').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
