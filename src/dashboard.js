@@ -168,6 +168,7 @@ fetch('http://localhost:3000/data')
                     const data = await response.json();
                     if (data.success) {
                         alert("Transaction processed successfully!");
+                        row.remove();
                     } else {
                         alert("Transaction failed: " + data.error);
                         console.error(data.error)

@@ -79,7 +79,7 @@ class Blockchain {
         console.log('Mine success');
         this.chain.push(block);
         this.pendingTransactions = [
-            new Transaction(null, miningRewardAddress, this.miningReward)
+            // new Transaction(null, miningRewardAddress, this.miningReward)
         ];
     }
     addTransaction(transaction) {
@@ -97,9 +97,11 @@ class Blockchain {
             for (const trans of block.transactions) {
                 if (trans.fromAddress === address) {
                     balance -= Number(trans.amount);
+                    console.log(balance)
                 }
                 if (trans.toAddress === address) {
                     balance += Number(trans.amount);
+                    console.log(balance)
                 }
             }
         }
