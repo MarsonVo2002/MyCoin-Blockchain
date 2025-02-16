@@ -14,6 +14,7 @@ if (fs.existsSync(blockchainFilePath)) {
   blockchain = myCoin.Blockchain.loadFromFile(blockchainFilePath)
 } else {
   blockchain = new myCoin.Blockchain();
+  saveBlockchain();
 }
 // Load transactions from JSON file
 function loadTransactionsFromFile(filename) {
